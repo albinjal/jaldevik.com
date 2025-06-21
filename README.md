@@ -1,51 +1,66 @@
-# Starter Kit for Vite, React, TypeScript, Tailwind and Node.js ESM
+# jaldevik.com – Personal Website of [Albin Jaldevik](https://jaldevik.com)
 
-_Minimal, sensible defaults, fast._
+## Overview
 
-Read [the blog post about this template](https://cpojer.net/posts/fastest-frontend-tooling-in-2022).
+A minimal, content-focused website and blog built with modern front-end tooling. Everything is statically generated so the site can be deployed on any CDN with near-instant load times.
 
-## Technologies
+## Key Features
 
-- [Vite](https://vitejs.dev/)
-- [React](https://reactjs.org/) with [React Compiler](https://react.dev/learn/react-compiler) enabled.
-- [TypeScript](https://www.typescriptlang.org)
-- [Tailwind](https://tailwindcss.com/)
-- [pnpm](https://pnpm.io/)
+- ⚡ **Fully static** & CDN-ready – no servers or cold-starts
+- 📝 **Markdown-powered blog** posts located in `src/posts`
+- 🎨 **Accessible, minimal design** using Tailwind CSS & shadcn/ui
+- 📱 **Responsive layout** that looks great on all screen sizes
+- 🔗 **Quick contact links**: LinkedIn, GitHub & email
+- 📷 **Optimised images** via Vite's asset pipeline
+- 💡 **Zero-bloat** – only ship what the user needs
 
-![screenshot of `App.tsx`](./screenshot.png)
+## Tech Stack
 
-## Setup
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) for lightning-fast dev/build
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [shadcn/ui](https://ui.shadcn.com/) component library
+- [pnpm](https://pnpm.io/) for dependency management
+- ESLint & Prettier for code quality and consistency
 
-- Press the "Use this template" button on the top of this repository's GitHub page.
-- Run `pnpm install` (or `npm install` if you don't use `pnpm`).
-- `pnpm dev` for development.
-- Use `pnpm test` to run tests.
-- `pnpm build` for production builds.
+## Getting Started
 
-_Note: You can install `pnpm` via `homebrew` on macOS: `brew install pnpm`._
+Clone the repo and install dependencies:
 
-## Protips for the fastest Developer Experience
-
-- Use [`npm-run-all`](https://github.com/mysticatea/npm-run-all) to parallelize local test runs.
-- Prettier and eslint have `--cache` flags. Use them!
-- Do not run prettier inside of `eslint`. It commonly takes 50% of the eslint runtime!
-- Automatically sort imports when running prettier/saving the document via [`@ianvs/prettier-plugin-sort-imports`](https://github.com/ianvs/prettier-plugin-sort-imports).
-- Use `swc` with `ts-node` for fast node scripts with [ESM](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/). See below ↓
-
-## Run node scripts with ESM and TypeScript, fast.
-
-Create a `script.ts` file, run `chmod x script.ts` and execute it via `./script.ts`.
-
-```
-#!/usr/bin/env node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm
-
-console.log('Your code goes here.');
+```bash
+pnpm install
 ```
 
-Use this to restart your scripts instantly when a file changes:
+Start the development server (hot-reload enabled):
+
+```bash
+pnpm dev
+```
+
+Open http://localhost:5173 in your browser.
+
+## Building for Production
+
+```bash
+pnpm build  # Outputs static files to dist/
+```
+
+Deploy the contents of `dist/` to any static host (e.g. Netlify, Vercel, Cloudflare Pages).
+
+## Directory Structure (excerpt)
 
 ```
-#!/usr/bin/env NODE_ENV=development node --watch --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm
-
-console.log('This processes instantly restarts when a file changes.');
+src/
+  App.tsx         # Root React component
+  lib/            # Shared utilities
+  posts/          # Markdown/MDX blog posts
+public/           # Static assets copied as-is
 ```
+
+## Contributing
+
+Pull requests are welcome! If you find a bug or have an idea for an improvement, please open an issue first to discuss the change.
+
+## License
+
+[MIT](LICENSE)
