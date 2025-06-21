@@ -15,9 +15,7 @@ export default function HomePage() {
         <h1 className="from-foreground to-muted-foreground mb-2 bg-gradient-to-r bg-clip-text text-4xl leading-tight font-bold text-transparent">
           Albin Jaldevik
         </h1>
-        <p className="text-muted-foreground mb-6 text-lg">
-          Quantitative Trading Analyst • Mathematics & AI Enthusiast
-        </p>
+        <p className="text-muted-foreground mb-6 text-lg">Mathematics & AI</p>
 
         {/* Description */}
         <div className="mb-8 max-w-prose">
@@ -26,8 +24,8 @@ export default function HomePage() {
             insight—currently trading equity options in London.
           </p>
           <p className="text-muted-foreground">
-            Outside of work I write about programming, mathematics and the
-            occasional sailing adventure.
+            Outside of work I write about programming, mathematics and other
+            technical topics.
           </p>
         </div>
 
@@ -35,7 +33,7 @@ export default function HomePage() {
         <div className="mb-12 flex flex-wrap gap-3">
           <InfoChip
             type="occupation"
-            primary="Quantitative Trading Analyst"
+            primary="Quantitative Trader"
             secondary="DRW"
           />
           <InfoChip type="location" primary="London" />

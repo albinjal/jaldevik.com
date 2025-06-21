@@ -27,13 +27,4 @@ export const posts: PostMeta[] = [
       'Exploring how mathematical models power modern algorithmic trading strategies.',
     tags: ['Mathematics', 'Trading', 'Algorithms', 'Finance'],
   },
-  {
-    slug: 'sailing-adventures',
-    path: '/blog/sailing-adventures',
-    title: 'Sailing the Swedish Archipelago',
-    date: '2024-12-20',
-    summary:
-      'Reflections on representing Sweden in international sailing competitions and exploring the beautiful archipelago.',
-    tags: ['Sailing', 'Sweden', 'Competition', 'Personal'],
-  },
 ];
