@@ -6,11 +6,15 @@ import Navbar from './components/Navbar';
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/blog/:slug" element={<PostPage />} />
-      </Routes>
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/blog/:slug" element={<PostPage />} />
+          </Routes>
+        </main>
+      </div>
     </BrowserRouter>
   );
 }

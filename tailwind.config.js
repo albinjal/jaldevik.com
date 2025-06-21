@@ -3,6 +3,13 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './*.html'],
   darkMode: 'class',
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       colors: {
         'orange-web': '#fca311',
@@ -24,4 +31,5 @@ export default {
       },
     },
   },
+  plugins: [require('@tailwindcss/typography')],
 };

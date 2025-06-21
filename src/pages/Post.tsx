@@ -15,12 +15,16 @@ export default function PostPage() {
     if (!loader) {
       // No match → 404
       setComponent(() => () => (
-        <main className="mx-auto my-8 max-w-3xl p-4 text-center">
-          <h1 className="mb-4 text-2xl font-semibold">404 – Post not found</h1>
-          <RouterLink to="/" className="text-orange-web underline">
-            Return home
-          </RouterLink>
-        </main>
+        <div className="container mx-auto px-4 py-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-4 text-2xl font-semibold">
+              404 – Post not found
+            </h1>
+            <RouterLink to="/" className="text-primary underline">
+              Return home
+            </RouterLink>
+          </div>
+        </div>
       ));
       return;
     }
@@ -33,13 +37,17 @@ export default function PostPage() {
 
   if (!Component) {
     return (
-      <main className="mx-auto my-8 max-w-3xl p-4 text-center">Loading…</main>
+      <div className="container mx-auto px-4 py-8">
+        <div className="mx-auto max-w-3xl text-center">Loading…</div>
+      </div>
     );
   }
 
   return (
-    <main className="prose dark:prose-invert mx-auto my-8 max-w-3xl">
-      <Component />
-    </main>
+    <div className="container mx-auto px-4 py-8">
+      <article className="prose prose-lg dark:prose-invert mx-auto max-w-3xl">
+        <Component />
+      </article>
+    </div>
   );
 }

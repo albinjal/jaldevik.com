@@ -1,23 +1,33 @@
-import { useTheme } from '@/components/theme-provider';
+import { ModeToggle } from '@/components/mode-toggle';
+import { Github, Linkedin } from 'lucide-react';
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
-
   return (
-    <nav className="border-border bg-card/70 mx-auto mt-4 flex w-8/12 items-center justify-between rounded-sm border px-4 py-2 shadow-md backdrop-blur">
-      {/* Site title / logo */}
-      <a href="/" className="text-foreground text-lg font-semibold">
-        jaldevik.com
-      </a>
+    <nav className="border-border/40 bg-background/70 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
+      <div className="container mx-auto flex h-14 items-center justify-between px-4">
+        {/* Site title / logo */}
+        <a href="/" className="text-lg font-semibold">
+          Albin Jaldevik
+        </a>
 
-      {/* Dark / light mode toggle */}
-      <button
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="border-border bg-background hover:bg-secondary hover:text-secondary-foreground rounded-md border px-2 py-1 text-sm shadow"
-        aria-label="Toggle dark mode"
-      >
-        {theme === 'dark' ? '🌙' : '☀️'}
-      </button>
+        <div className="flex items-center gap-2">
+          <a
+            href="https://github.com/jaldevik"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github className="h-5 w-5" />
+          </a>
+          <a
+            href="https://linkedin.com/in/albin-jaldevik"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin className="h-5 w-5" />
+          </a>
+          <ModeToggle />
+        </div>
+      </div>
     </nav>
   );
 }
