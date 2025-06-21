@@ -53,4 +53,4 @@ Suggested first coding milestone
 
 If that sounds good I’ll start writing the code for milestone 1 (dark / light mode) and commit it with a tidy message.
 
-Note that the website should only have two types of pages so far. The home/landing page with some infromation about me / contacts etc as well as links to blog posts. the second type of page so far is the actual blog posts, there should also be a way to return home. keep everything quite minial
+Note that the website should only have two types of pages so far. The home/landing page with some infromation about me / contacts etc as well as links to blog posts. the second type of page so far is the actual blog posts, there should also be a way to return home.

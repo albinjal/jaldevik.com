@@ -1,6 +1,6 @@
 import App from './App.tsx';
 import './App.css';
-import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeProvider } from '@/components/theme-provider.tsx';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 

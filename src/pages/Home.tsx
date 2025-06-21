@@ -1,12 +1,6 @@
-import { posts } from '@/generated/posts';
-import type { PostMeta } from '@/generated/posts';
-import { AnchorHTMLAttributes } from 'react';
+import { posts } from '@/generated/posts.js';
+import type { PostMeta } from '@/generated/posts.js';
 import { Link } from 'react-router-dom';
-
-// External anchor helper
-const ExternalLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => (
-  <a className="text-primary underline hover:no-underline" {...props} />
-);
 
 export default function HomePage() {
   // Show up to 5 recent articles
@@ -23,24 +17,8 @@ export default function HomePage() {
           Quantitative Trading Analyst • MSc Computer Science (AI)
         </p>
 
-        {/* Contact links */}
-        <ul className="mb-8 flex flex-col gap-2 text-base">
-          <li>
-            📧{' '}
-            <ExternalLink href="mailto:albin@jaldevik.com">
-              albin@jaldevik.com
-            </ExternalLink>
-          </li>
-          <li>
-            💼{' '}
-            <ExternalLink href="https://linkedin.com/in/albin-jaldevik">
-              linkedin.com/in/albin-jaldevik
-            </ExternalLink>
-          </li>
-        </ul>
-
         {/* Description */}
-        <p className="text-muted-foreground mb-8 max-w-prose">
+        <p className="text-muted-foreground mb-12 max-w-prose">
           I specialise in turning data and algorithms into actionable
           insight—currently trading equity options in London. Outside of work I
           write about programming, maths and the occasional sailing adventure.
@@ -48,34 +26,33 @@ export default function HomePage() {
 
         {/* Recent articles */}
         <section>
-          <h2 className="mb-4 text-2xl font-semibold">Recent articles</h2>
+          <h2 className="mb-6 text-2xl font-semibold">Recent articles</h2>
           {recent.length === 0 && (
             <p className="text-muted-foreground">No posts yet.</p>
           )}
-          <ul className="space-y-4">
+          <div className="grid gap-4">
             {recent.map((post) => (
-              <li
-                key={post.slug}
-                className="group hover:border-primary hover:bg-accent/50 rounded-md border border-transparent p-3 transition-colors"
-              >
-                <Link to={post.path} className="block">
-                  <h3 className="text-primary text-xl font-medium group-hover:underline">
+              <Link key={post.slug} to={post.path} className="group block">
+                <article className="bg-card hover:bg-accent/50 border-border hover:border-primary/50 transform rounded-lg border p-6 transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-md">
+                  <h3 className="text-foreground group-hover:text-primary mb-2 text-xl font-semibold transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <time className="text-muted-foreground mb-3 block text-sm">
                     {new Date(post.date).toLocaleDateString(undefined, {
                       year: 'numeric',
-                      month: 'short',
+                      month: 'long',
                       day: 'numeric',
                     })}
-                  </p>
+                  </time>
                   {post.summary && (
-                    <p className="text-muted-foreground mt-2">{post.summary}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {post.summary}
+                    </p>
                   )}
-                </Link>
-              </li>
+                </article>
+              </Link>
             ))}
-          </ul>
+          </div>
         </section>
       </div>
     </div>

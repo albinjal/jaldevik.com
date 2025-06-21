@@ -2,6 +2,8 @@ import { resolve } from 'path';
 import mdx from '@mdx-js/rollup';
 import react from '@vitejs/plugin-react';
 import reactCompiler from 'babel-plugin-react-compiler';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -15,7 +17,9 @@ export default defineConfig({
         plugins: [reactCompiler],
       },
     }),
-    mdx(),
+    mdx({
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+    }),
   ],
   resolve: {
     alias: {

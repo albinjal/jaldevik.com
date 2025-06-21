@@ -1,7 +1,7 @@
-import HomePage from '@/pages/Home';
-import PostPage from '@/pages/Post';
+import HomePage from '@/pages/Home.tsx';
+import PostPage from '@/pages/Post.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar.tsx';
 
 export default function App() {
   return (
