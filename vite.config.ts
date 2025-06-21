@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 import reactCompiler from 'babel-plugin-react-compiler';
 import { defineConfig } from 'vite';
@@ -14,4 +15,9 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+    },
+  },
 });
