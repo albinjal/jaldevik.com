@@ -68,8 +68,6 @@ export function BlogPostHeader({
           </>
         )}
       </div>
-
-      <Separator className="my-8" />
     </header>
   );
 }

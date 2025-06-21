@@ -2,7 +2,6 @@ import { ArrowLeft, ArrowRight, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { posts } from '../generated/posts.js';
 import { Button } from './ui/button.tsx';
-import { Separator } from './ui/separator.tsx';
 
 interface BlogPostFooterProps {
   currentSlug: string;
@@ -17,9 +16,7 @@ export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
     currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 
   return (
-    <footer className="mt-16 space-y-8">
-      <Separator />
-
+    <footer className="mt-16 space-y-6">
       {/* Navigation between posts */}
       {(previousPost || nextPost) && (
         <nav className="flex items-center justify-between">
@@ -70,18 +67,6 @@ export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
             )}
           </div>
         </nav>
-      )}
-
-      {/* Back to home if no navigation */}
-      {!previousPost && !nextPost && (
-        <div className="text-center">
-          <Button variant="outline" asChild>
-            <Link to="/" className="flex items-center gap-2">
-              <Home className="h-4 w-4" />
-              Back to all posts
-            </Link>
-          </Button>
-        </div>
       )}
     </footer>
   );
