@@ -1,7 +1,7 @@
 import { posts } from '@/generated/posts.js';
 import type { PostMeta } from '@/generated/posts.js';
 import { Link } from 'react-router-dom';
-import DegreeChip from '../components/DegreeChip.tsx';
+import InfoChip from '../components/InfoChip.tsx';
 import { Badge } from '../components/ui/badge.tsx';
 
 export default function HomePage() {
@@ -19,15 +19,8 @@ export default function HomePage() {
           Quantitative Trading Analyst • Mathematics & AI Enthusiast
         </p>
 
-        {/* Degree Chips */}
-        <div className="mb-8 flex flex-wrap gap-3">
-          <DegreeChip degree="M.Sc." field="Computer Science (AI)" />
-          <DegreeChip degree="B.Sc." field="Mathematics" />
-          <DegreeChip degree="B.Sc." field="Engineering" />
-        </div>
-
         {/* Description */}
-        <div className="mb-12 max-w-prose">
+        <div className="mb-8 max-w-prose">
           <p className="text-muted-foreground mb-4">
             I specialise in turning data and algorithms into actionable
             insight—currently trading equity options in London.
@@ -36,6 +29,23 @@ export default function HomePage() {
             Outside of work I write about programming, mathematics and the
             occasional sailing adventure.
           </p>
+        </div>
+
+        {/* Info Chips */}
+        <div className="mb-12 flex flex-wrap gap-3">
+          <InfoChip
+            type="occupation"
+            primary="Quantitative Trading Analyst"
+            secondary="DRW"
+          />
+          <InfoChip type="location" primary="London" />
+          <InfoChip
+            type="degree"
+            primary="M.Sc."
+            secondary="Computer Science (AI)"
+          />
+          <InfoChip type="degree" primary="B.Sc." secondary="Mathematics" />
+          <InfoChip type="degree" primary="B.Sc." secondary="Engineering" />
         </div>
 
         {/* Recent articles */}

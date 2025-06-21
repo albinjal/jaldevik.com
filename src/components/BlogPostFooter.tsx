@@ -19,28 +19,37 @@ export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
     <footer className="mt-16 space-y-6">
       {/* Navigation between posts */}
       {(previousPost || nextPost) && (
-        <nav className="flex items-center justify-between">
-          <div className="flex-1">
-            {previousPost && (
+        <nav className="flex items-center justify-between md:justify-between">
+          {/* Previous post */}
+          <div className="mr-2 min-w-0 flex-1">
+            {previousPost ? (
               <Button
                 variant="ghost"
                 asChild
-                className="group h-auto justify-start p-4"
+                className="group h-auto w-full justify-start p-4"
               >
-                <Link to={previousPost.path} className="flex items-start gap-3">
-                  <ArrowLeft className="mt-1 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                  <div className="text-left">
+                <Link
+                  to={previousPost.path}
+                  className="flex min-w-0 items-start gap-3"
+                >
+                  <ArrowLeft className="mt-1 h-4 w-4 flex-shrink-0 transition-transform group-hover:-translate-x-1" />
+                  <div className="min-w-0 flex-1 text-left">
                     <div className="text-muted-foreground text-sm">
                       Previous
                     </div>
-                    <div className="font-medium">{previousPost.title}</div>
+                    <div className="truncate font-medium">
+                      {previousPost.title}
+                    </div>
                   </div>
                 </Link>
               </Button>
+            ) : (
+              <div />
             )}
           </div>
 
-          <div className="mx-4 flex-shrink-0">
+          {/* All posts button - hidden on mobile */}
+          <div className="hidden md:mx-4 md:flex md:flex-shrink-0">
             <Button variant="outline" size="sm" asChild>
               <Link to="/" className="flex items-center gap-2">
                 <Home className="h-4 w-4" />
@@ -49,19 +58,23 @@ export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
             </Button>
           </div>
 
-          <div className="flex flex-1 justify-end">
+          {/* Next post */}
+          <div className="ml-2 flex min-w-0 flex-1 justify-end">
             {nextPost && (
               <Button
                 variant="ghost"
                 asChild
-                className="group h-auto justify-end p-4"
+                className="group h-auto w-full justify-end p-4"
               >
-                <Link to={nextPost.path} className="flex items-start gap-3">
-                  <div className="text-right">
+                <Link
+                  to={nextPost.path}
+                  className="flex min-w-0 items-start gap-3"
+                >
+                  <div className="min-w-0 flex-1 text-right">
                     <div className="text-muted-foreground text-sm">Next</div>
-                    <div className="font-medium">{nextPost.title}</div>
+                    <div className="truncate font-medium">{nextPost.title}</div>
                   </div>
-                  <ArrowRight className="mt-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="mt-1 h-4 w-4 flex-shrink-0 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             )}
