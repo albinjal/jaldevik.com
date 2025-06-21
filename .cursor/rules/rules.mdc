@@ -1,0 +1,48 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Cursor Rules for jaldevik.com
+
+## 🔰 Project Context
+- React 19 + TypeScript 5 (`strict` mode enabled) with Vite 6 and pnpm.
+- Tailwind CSS 4 for styling.  Custom colors are defined in `tailwind.config.js` (`orange-web`, `oxford-blue`, `platinum`).
+- Absolute import alias: `@/* → src/*` (see `tsconfig.json`).
+- Use the utility `cn()` from `src/lib/utils.ts` to merge Tailwind classes.
+- Blog posts live in `src/posts` (MDX).  Build scripts rely on `scripts/generatePostIndex.ts`.
+
+## 🎨 Styling Rules
+1. **Prefer Tailwind classes**; never write inline `style` props or CSS-in-JS.
+2. Compose class names with `cn()` (or `clsx` + `twMerge` when unavoidable).
+3. Keep components free of visual state when possible; use the `darkMode: 'class'` strategy already configured.
+
+## 🧑‍💻 Code Style & Architecture
+1. Write new code in **strictly-typed** TypeScript.  Avoid `any`; use generics and utility types.
+2. Use **functional React components** (arrow-function syntax).  No class components.
+3. Prefer **named exports**; use a default export only when a file has a single primary component.
+4. Keep components small & reusable—UI in `src/components`, screens/pages in `src/pages`.
+5. Follow the hooks-first pattern; extract reusable logic into custom hooks (`useXyz`).
+6. When adding files, place tests next to the source (`*.test.tsx`) and use Vitest.
+7. Respect ESLint & Prettier configs—run `pnpm lint` & `pnpm format` after changes.
+
+## 📦 Dependencies
+- **Do not add new dependencies** unless absolutely necessary.  First check if the task can be solved with existing packages or native APIs.
+- If a new dependency *must* be introduced, state the rationale in the PR description and add it using **pnpm**.
+
+## 🛠️ Tooling & Scripts
+- Use `pnpm dev` for local development and `pnpm build` for production builds.
+- Run `pnpm run generate:posts` whenever MDX posts change (build/dev scripts already include this).
+- Use `pnpm test` (Vitest) in CI or before committing to ensure the suite passes.
+- Add new dependencies via `pnpm install ___`
+
+## 🔗 Imports
+- Always import from the alias path, e.g. `import Button from '@/components/Button';` rather than relative `../../` chains.
+- Group & sort imports automatically (Prettier + sort-imports plugin is configured).
+## ✅ Commit Messages
+After modifying code, end your AI assistant response with a **Conventional Commit** style message summarizing the change, e.g. `feat(navbar): add mobile hamburger menu`.
+
+## 🚫 Things to Avoid
+- Inline styles, CSS-in-JS libraries, or untyped code.
+- Adding heavy utilities like lodash; use built-ins instead.
+- Blocking the user with confirmation prompts—provide sensible defaults and trust git for rollbacks.
