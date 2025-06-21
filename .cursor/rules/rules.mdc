@@ -7,7 +7,7 @@ alwaysApply: false
 
 ## 🔰 Project Context
 - React 19 + TypeScript 5 (`strict` mode enabled) with Vite 6 and pnpm.
-- Tailwind CSS 4 for styling.  Custom colors are defined in `tailwind.config.js` (`orange-web`, `oxford-blue`, `platinum`).
+- Tailwind CSS 4 for styling.  Custom colors are defined in `tailwind.config.js`
 - Absolute import alias: `@/* → src/*` (see `tsconfig.json`).
 - Use the utility `cn()` from `src/lib/utils.ts` to merge Tailwind classes.
 - Blog posts live in `src/posts` (MDX).  Build scripts rely on `scripts/generatePostIndex.ts`.

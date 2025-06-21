@@ -16,12 +16,12 @@ export default function HomePage() {
   const recent: PostMeta[] = posts.slice(0, 5);
 
   return (
-    <main className="mx-auto my-8 mt-10 max-w-3xl rounded-sm border border-gray-200 p-6 shadow-md dark:border-neutral-600 dark:bg-neutral-800 dark:shadow-none">
+    <main className="border-border bg-card mx-auto my-8 mt-10 max-w-3xl rounded-sm border p-6 shadow-md dark:shadow-none">
       {/* Header */}
-      <h1 className="mb-2 text-4xl leading-tight font-bold text-gray-900 dark:text-gray-100">
+      <h1 className="text-foreground mb-2 text-4xl leading-tight font-bold">
         Albin Jaldevik
       </h1>
-      <p className="mb-6 text-lg text-gray-600 dark:text-gray-300">
+      <p className="text-muted-foreground mb-6 text-lg">
         Quantitative Trading Analyst • MSc Computer Science (AI)
       </p>
 
@@ -42,7 +42,7 @@ export default function HomePage() {
       </ul>
 
       {/* Description */}
-      <p className="mb-8 max-w-prose text-gray-700 dark:text-gray-200">
+      <p className="text-muted-foreground mb-8 max-w-prose">
         I specialise in turning data and algorithms into actionable
         insight—currently trading equity options in London. Outside of work I
         write about programming, maths and the occasional sailing adventure.
@@ -50,11 +50,11 @@ export default function HomePage() {
 
       {/* Recent articles */}
       <section>
-        <h2 className="mb-4 text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        <h2 className="text-foreground mb-4 text-2xl font-semibold">
           Recent articles
         </h2>
         {recent.length === 0 && (
-          <p className="text-gray-600 dark:text-gray-400">No posts yet.</p>
+          <p className="text-muted-foreground">No posts yet.</p>
         )}
         <ul className="space-y-4">
           {recent.map((post) => (
@@ -66,7 +66,7 @@ export default function HomePage() {
                 <h3 className="text-orange-web text-xl font-medium group-hover:underline">
                   {post.title}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground text-sm">
                   {new Date(post.date).toLocaleDateString(undefined, {
                     year: 'numeric',
                     month: 'short',
@@ -74,9 +74,7 @@ export default function HomePage() {
                   })}
                 </p>
                 {post.summary && (
-                  <p className="mt-2 text-gray-700 dark:text-gray-300">
-                    {post.summary}
-                  </p>
+                  <p className="text-muted-foreground mt-2">{post.summary}</p>
                 )}
               </Link>
             </li>
