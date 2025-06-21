@@ -1,5 +1,6 @@
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Badge } from './ui/badge.tsx';
 import { Button } from './ui/button.tsx';
 import { Separator } from './ui/separator.tsx';
 
@@ -8,6 +9,7 @@ interface BlogPostHeaderProps {
   date: string;
   summary?: string;
   readingTime?: string;
+  tags?: string[];
 }
 
 export function BlogPostHeader({
@@ -15,6 +17,7 @@ export function BlogPostHeader({
   date,
   summary,
   readingTime,
+  tags,
 }: BlogPostHeaderProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -51,6 +54,21 @@ export function BlogPostHeader({
           </p>
         )}
       </div>
+
+      {/* Tags */}
+      {tags && tags.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <Badge
+              key={tag}
+              variant="secondary"
+              className="bg-primary/10 border-primary/20 text-primary hover:bg-primary/20 transition-colors"
+            >
+              {tag}
+            </Badge>
+          ))}
+        </div>
+      )}
 
       {/* Metadata */}
       <div className="text-muted-foreground flex items-center gap-4 text-sm">

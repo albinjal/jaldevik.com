@@ -1,14 +1,16 @@
 import HomePage from '@/pages/Home.tsx';
 import PostPage from '@/pages/Post.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import BackgroundAnimation from './components/BackgroundAnimation.tsx';
 import Navbar from './components/Navbar.tsx';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="flex min-h-screen flex-col">
+      <div className="from-background via-background to-background/95 relative flex min-h-screen flex-col bg-gradient-to-br">
+        <BackgroundAnimation />
         <Navbar />
-        <main className="flex-1">
+        <main className="relative z-10 flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/blog/:slug" element={<PostPage />} />

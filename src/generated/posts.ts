@@ -6,6 +6,7 @@ export type PostMeta = {
   title: string;
   date: string;
   summary?: string;
+  tags?: string[];
 };
 
 export const posts: PostMeta[] = [
@@ -15,5 +16,24 @@ export const posts: PostMeta[] = [
     title: 'Hello World',
     date: '2025-04-05',
     summary: 'Your first MDX blog post!',
+    tags: ['MDX', 'React', 'Getting Started'],
+  },
+  {
+    slug: 'mathematics-in-trading',
+    path: '/blog/mathematics-in-trading',
+    title: 'Mathematics in Quantitative Trading',
+    date: '2025-01-15',
+    summary:
+      'Exploring how mathematical models power modern algorithmic trading strategies.',
+    tags: ['Mathematics', 'Trading', 'Algorithms', 'Finance'],
+  },
+  {
+    slug: 'sailing-adventures',
+    path: '/blog/sailing-adventures',
+    title: 'Sailing the Swedish Archipelago',
+    date: '2024-12-20',
+    summary:
+      'Reflections on representing Sweden in international sailing competitions and exploring the beautiful archipelago.',
+    tags: ['Sailing', 'Sweden', 'Competition', 'Personal'],
   },
 ];
