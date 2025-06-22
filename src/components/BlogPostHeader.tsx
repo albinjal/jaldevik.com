@@ -2,28 +2,27 @@ import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Badge } from './ui/badge.tsx';
 import { Button } from './ui/button.tsx';
-import { Separator } from './ui/separator.tsx';
 
 interface BlogPostHeaderProps {
-  title: string;
   date: string;
-  summary?: string;
   readingTime?: string;
+  summary?: string;
   tags?: string[];
+  title: string;
 }
 
 export function BlogPostHeader({
-  title,
   date,
-  summary,
   readingTime,
+  summary,
   tags,
+  title,
 }: BlogPostHeaderProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
       day: 'numeric',
+      month: 'long',
+      year: 'numeric',
     });
   };
 
@@ -31,10 +30,10 @@ export function BlogPostHeader({
     <header className="space-y-6">
       {/* Navigation */}
       <div className="flex items-center">
-        <Button variant="ghost" size="sm" asChild className="group">
+        <Button asChild className="group" size="sm" variant="ghost">
           <Link
-            to="/"
             className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition-colors"
+            to="/"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Back to posts
@@ -60,9 +59,9 @@ export function BlogPostHeader({
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <Badge
+              className="bg-primary/10 border-primary/20 text-primary hover:bg-primary/20 transition-colors"
               key={tag}
               variant="secondary"
-              className="bg-primary/10 border-primary/20 text-primary hover:bg-primary/20 transition-colors"
             >
               {tag}
             </Badge>

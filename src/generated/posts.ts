@@ -11,11 +11,11 @@ export type PostMeta = {
 
 export const posts: PostMeta[] = [
   {
-    slug: 'hello-world',
-    path: '/blog/hello-world',
-    title: 'Hello World',
     date: '2025-04-05',
+    path: '/blog/hello-world',
+    slug: 'hello-world',
     summary: 'Your first MDX blog post!',
     tags: ['MDX', 'React', 'Getting Started'],
+    title: 'Hello World',
   },
 ];

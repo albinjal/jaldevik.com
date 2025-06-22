@@ -3,15 +3,15 @@ import { Button } from '@/components/ui/button.tsx';
 import { Moon, Sun } from 'lucide-react';
 
 export function ModeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
   const isDark = theme === 'dark';
 
   return (
     <Button
-      variant="outline"
-      size="icon"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label="Toggle dark mode"
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      size="icon"
+      variant="outline"
     >
       {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
       <span className="sr-only">Toggle theme</span>

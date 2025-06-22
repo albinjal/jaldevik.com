@@ -10,8 +10,8 @@ import {
 
 const mdxModules = import.meta.glob('../posts/*.mdx');
 const mdxRawModules = import.meta.glob('../posts/*.mdx', {
-  query: '?raw',
   import: 'default',
+  query: '?raw',
 });
 
 export default function PostPage() {
@@ -24,7 +24,9 @@ export default function PostPage() {
   const postMeta = posts.find((post: any) => post.slug === slug);
 
   useEffect(() => {
-    if (!slug) return;
+    if (!slug) {
+      return;
+    }
     const importPath = `../posts/${slug}.mdx`;
     const loader = mdxModules[importPath];
 
@@ -40,8 +42,8 @@ export default function PostPage() {
               The blog post you're looking for doesn't exist.
             </p>
             <RouterLink
-              to="/"
               className="focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium shadow transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
+              to="/"
             >
               Return home
             </RouterLink>
@@ -94,11 +96,11 @@ export default function PostPage() {
       <div className="mx-auto max-w-3xl">
         {postMeta && (
           <BlogPostHeader
-            title={postMeta.title}
             date={postMeta.date}
-            summary={postMeta.summary}
             readingTime={readingTime}
+            summary={postMeta.summary}
             tags={postMeta.tags}
+            title={postMeta.title}
           />
         )}
         <article className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-muted prose-pre:border mt-8 max-w-none">

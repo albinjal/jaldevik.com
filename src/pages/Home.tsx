@@ -18,26 +18,25 @@ export default function HomePage() {
         {/* Description */}
         <div className="mb-8 max-w-prose">
           <p className="text-muted-foreground mb-4">
-            Currently trading equity options in London. Outside of work I
-            vibe-code.
+            Currently trading equity options in London and vibe-code.
           </p>
         </div>
 
         {/* Info Chips */}
         <div className="mb-12 flex flex-wrap gap-3">
           <InfoChip
-            type="occupation"
             primary="Quantitative Trader"
             secondary="DRW"
+            type="occupation"
           />
-          <InfoChip type="location" primary="London" />
+          <InfoChip primary="London" type="location" />
           <InfoChip
-            type="degree"
             primary="M.Sc."
             secondary="Computer Science (AI)"
+            type="degree"
           />
-          <InfoChip type="degree" primary="B.Sc." secondary="Mathematics" />
-          <InfoChip type="degree" primary="B.Sc." secondary="Engineering" />
+          <InfoChip primary="B.Sc." secondary="Mathematics" type="degree" />
+          <InfoChip primary="B.Sc." secondary="Engineering" type="degree" />
         </div>
 
         {/* Recent articles */}
@@ -51,7 +50,7 @@ export default function HomePage() {
           )}
           <div className="grid gap-6">
             {recent.map((post) => (
-              <Link key={post.slug} to={post.path} className="group block">
+              <Link className="group block" key={post.slug} to={post.path}>
                 <article className="bg-card/50 hover:bg-card border-border hover:border-primary/30 hover:shadow-primary/5 transform rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
                   <div className="flex flex-col gap-3">
                     <div className="flex items-start justify-between gap-4">
@@ -60,9 +59,9 @@ export default function HomePage() {
                       </h3>
                       <time className="text-muted-foreground mt-1 text-sm whitespace-nowrap">
                         {new Date(post.date).toLocaleDateString(undefined, {
-                          year: 'numeric',
-                          month: 'short',
                           day: 'numeric',
+                          month: 'short',
+                          year: 'numeric',
                         })}
                       </time>
                     </div>
@@ -71,9 +70,9 @@ export default function HomePage() {
                       <div className="flex flex-wrap gap-2">
                         {post.tags.map((tag) => (
                           <Badge
+                            className="bg-primary/5 border-primary/20 text-primary hover:bg-primary/10 px-2 py-1 text-xs transition-colors"
                             key={tag}
                             variant="outline"
-                            className="bg-primary/5 border-primary/20 text-primary hover:bg-primary/10 px-2 py-1 text-xs transition-colors"
                           >
                             {tag}
                           </Badge>

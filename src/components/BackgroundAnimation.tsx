@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react';
 
 interface FloatingElement {
-  x: number;
-  y: number;
+  content: string;
+  opacity: number;
+  size: number;
+  type: 'equation' | 'sailboat';
   vx: number;
   vy: number;
-  content: string;
-  size: number;
-  opacity: number;
-  type: 'equation' | 'sailboat';
+  x: number;
+  y: number;
 }
 
 export default function BackgroundAnimation() {
@@ -35,10 +35,14 @@ export default function BackgroundAnimation() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -51,28 +55,28 @@ export default function BackgroundAnimation() {
       // Add equations
       for (let i = 0; i < 15; i++) {
         elementsRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
+          content: equations[Math.floor(Math.random() * equations.length)],
+          opacity: 0.03 + Math.random() * 0.07,
+          size: 12 + Math.random() * 8,
+          type: 'equation',
           vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
-          content: equations[Math.floor(Math.random() * equations.length)],
-          size: 12 + Math.random() * 8,
-          opacity: 0.03 + Math.random() * 0.07,
-          type: 'equation',
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
         });
       }
 
       // Add sailboats
       for (let i = 0; i < 3; i++) {
         elementsRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
+          content: sailboat,
+          opacity: 0.08 + Math.random() * 0.07,
+          size: 16 + Math.random() * 12,
+          type: 'sailboat',
           vx: (Math.random() - 0.5) * 0.2,
           vy: (Math.random() - 0.5) * 0.2,
-          content: sailboat,
-          size: 16 + Math.random() * 12,
-          opacity: 0.08 + Math.random() * 0.07,
-          type: 'sailboat',
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
         });
       }
     };
@@ -105,8 +109,12 @@ export default function BackgroundAnimation() {
         element.y += element.vy;
 
         // Bounce off edges
-        if (element.x < 0 || element.x > canvas.width) element.vx *= -1;
-        if (element.y < 0 || element.y > canvas.height) element.vy *= -1;
+        if (element.x < 0 || element.x > canvas.width) {
+          element.vx *= -1;
+        }
+        if (element.y < 0 || element.y > canvas.height) {
+          element.vy *= -1;
+        }
 
         // Keep within bounds
         element.x = Math.max(0, Math.min(canvas.width, element.x));
@@ -149,8 +157,8 @@ export default function BackgroundAnimation() {
 
   return (
     <canvas
-      ref={canvasRef}
       className="pointer-events-none fixed inset-0 z-0 opacity-30 dark:opacity-20"
+      ref={canvasRef}
       style={{ color: 'var(--muted-foreground)', filter: 'blur(0.5px)' }}
     />
   );

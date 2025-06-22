@@ -20,17 +20,16 @@ export type ThemeProviderProps = {
 };
 
 export type ThemeProviderState = {
-  theme: Theme;
   /**
    * Update the current theme and persist it to localStorage.
    */
   setTheme: (theme: Theme) => void;
+  theme: Theme;
 };
 
 const initialState: ThemeProviderState = {
-  theme: 'system',
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setTheme: () => {},
+  theme: 'system',
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
@@ -42,7 +41,9 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return defaultTheme;
+    if (typeof window === 'undefined') {
+      return defaultTheme;
+    }
     return (localStorage.getItem(storageKey) as Theme) || defaultTheme;
   });
 
@@ -69,8 +70,8 @@ export function ThemeProvider({
   };
 
   const value: ThemeProviderState = {
-    theme,
     setTheme,
+    theme,
   };
 
   return (

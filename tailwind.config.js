@@ -2,6 +2,7 @@
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './*.html'],
   darkMode: 'class',
+  plugins: [],
   theme: {
     container: {
       center: true,
@@ -12,24 +13,23 @@ export default {
     },
     extend: {
       colors: {
+        background: 'var(--background)',
+        border: 'var(--border)',
+        card: 'var(--card)',
+        'card-foreground': 'var(--card-foreground)',
+        foreground: 'var(--foreground)',
+        input: 'var(--input)',
+        muted: 'var(--muted)',
+        'muted-foreground': 'var(--muted-foreground)',
         'orange-web': '#fca311',
         'oxford-blue': '#0d1117',
         platinum: '#e5e5e5',
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-        card: 'var(--card)',
-        'card-foreground': 'var(--card-foreground)',
         primary: 'var(--primary)',
         'primary-foreground': 'var(--primary-foreground)',
+        ring: 'var(--ring)',
         secondary: 'var(--secondary)',
         'secondary-foreground': 'var(--secondary-foreground)',
-        muted: 'var(--muted)',
-        'muted-foreground': 'var(--muted-foreground)',
-        border: 'var(--border)',
-        input: 'var(--input)',
-        ring: 'var(--ring)',
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
 };

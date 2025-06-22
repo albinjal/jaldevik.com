@@ -1,17 +1,17 @@
-import { Badge } from '@/components/ui/badge';
 import { Briefcase, GraduationCap, MapPin } from 'lucide-react';
+import { Badge } from './ui/badge.js';
 
 interface InfoChipProps {
-  type: 'degree' | 'location' | 'occupation';
   primary: string;
   secondary?: string;
+  type: 'degree' | 'location' | 'occupation';
   variant?: 'default' | 'secondary' | 'outline';
 }
 
 export default function InfoChip({
-  type,
   primary,
   secondary,
+  type,
   variant = 'secondary',
 }: InfoChipProps) {
   const getIcon = () => {
@@ -29,8 +29,8 @@ export default function InfoChip({
 
   return (
     <Badge
-      variant={variant}
       className="from-primary/20 to-accent/20 border-primary/30 text-foreground hover:from-primary/30 hover:to-accent/30 bg-gradient-to-r px-3 py-1 text-sm font-medium transition-all duration-200"
+      variant={variant}
     >
       <span className="flex items-center gap-2">
         {getIcon()}

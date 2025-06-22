@@ -8,9 +8,7 @@ interface BlogPostFooterProps {
 }
 
 export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
-  const currentIndex = posts.findIndex(
-    (post: any) => post.slug === currentSlug,
-  );
+  const currentIndex = posts.findIndex((post) => post.slug === currentSlug);
   const previousPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
   const nextPost =
     currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
@@ -24,13 +22,13 @@ export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
           <div className="mr-2 min-w-0 flex-1">
             {previousPost ? (
               <Button
-                variant="ghost"
                 asChild
                 className="group h-auto w-full justify-start p-4"
+                variant="ghost"
               >
                 <Link
-                  to={previousPost.path}
                   className="flex min-w-0 items-start gap-3"
+                  to={previousPost.path}
                 >
                   <ArrowLeft className="mt-1 h-4 w-4 flex-shrink-0 transition-transform group-hover:-translate-x-1" />
                   <div className="min-w-0 flex-1 text-left">
@@ -50,8 +48,8 @@ export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
 
           {/* All posts button - hidden on mobile */}
           <div className="hidden md:mx-4 md:flex md:flex-shrink-0">
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/" className="flex items-center gap-2">
+            <Button asChild size="sm" variant="outline">
+              <Link className="flex items-center gap-2" to="/">
                 <Home className="h-4 w-4" />
                 All posts
               </Link>
@@ -62,13 +60,13 @@ export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
           <div className="ml-2 flex min-w-0 flex-1 justify-end">
             {nextPost && (
               <Button
-                variant="ghost"
                 asChild
                 className="group h-auto w-full justify-end p-4"
+                variant="ghost"
               >
                 <Link
-                  to={nextPost.path}
                   className="flex min-w-0 items-start gap-3"
+                  to={nextPost.path}
                 >
                   <div className="min-w-0 flex-1 text-right">
                     <div className="text-muted-foreground text-sm">Next</div>

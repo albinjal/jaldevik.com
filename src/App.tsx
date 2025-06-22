@@ -12,8 +12,8 @@ export default function App() {
         <Navbar />
         <main className="relative z-10 flex-1">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/blog/:slug" element={<PostPage />} />
+            <Route element={<HomePage />} path="/" />
+            <Route element={<PostPage />} path="/blog/:slug" />
           </Routes>
         </main>
       </div>

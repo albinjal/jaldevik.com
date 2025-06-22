@@ -8,26 +8,26 @@ export function calculateReadingTime(text: string): string {
 
 export function extractTextFromMDX(mdxContent: string): string {
   // Remove frontmatter
-  const withoutFrontmatter = mdxContent.replace(/^---[\s\S]*?---/, '');
+  const withoutFrontmatter = mdxContent.replace(/^---[\S\s]*?---/, '');
 
   // Remove JSX/HTML tags
-  const withoutTags = withoutFrontmatter.replace(/<[^>]*>/g, '');
+  const withoutTags = withoutFrontmatter.replaceAll(/<[^>]*>/g, '');
 
   // Remove markdown syntax
   const withoutMarkdown = withoutTags
-    .replace(/#{1,6}\s/g, '') // Headers
-    .replace(/\*\*(.*?)\*\*/g, '$1') // Bold
-    .replace(/\*(.*?)\*/g, '$1') // Italic
-    .replace(/`(.*?)`/g, '$1') // Inline code
-    .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Links
-    .replace(/!\[(.*?)\]\(.*?\)/g, '$1') // Images
-    .replace(/```[\s\S]*?```/g, '') // Code blocks
-    .replace(/`([^`]+)`/g, '$1') // Inline code
-    .replace(/^\s*[-\*\+]\s/gm, '') // List items
-    .replace(/^\s*\d+\.\s/gm, '') // Numbered lists
-    .replace(/^\s*>\s/gm, '') // Blockquotes
-    .replace(/---/g, '') // Horizontal rules
-    .replace(/\n{3,}/g, '\n\n'); // Multiple newlines
+    .replaceAll(/#{1,6}\s/g, '') // Headers
+    .replaceAll(/\*\*(.*?)\*\*/g, '$1') // Bold
+    .replaceAll(/\*(.*?)\*/g, '$1') // Italic
+    .replaceAll(/`(.*?)`/g, '$1') // Inline code
+    .replaceAll(/\[(.*?)]\(.*?\)/g, '$1') // Links
+    .replaceAll(/!\[(.*?)]\(.*?\)/g, '$1') // Images
+    .replaceAll(/```[\S\s]*?```/g, '') // Code blocks
+    .replaceAll(/`([^`]+)`/g, '$1') // Inline code
+    .replaceAll(/^\s*[*+-]\s/gm, '') // List items
+    .replaceAll(/^\s*\d+\.\s/gm, '') // Numbered lists
+    .replaceAll(/^\s*>\s/gm, '') // Blockquotes
+    .replaceAll('---', '') // Horizontal rules
+    .replaceAll(/\n{3,}/g, '\n\n'); // Multiple newlines
 
   return withoutMarkdown.trim();
 }
