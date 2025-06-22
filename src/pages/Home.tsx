@@ -18,7 +18,7 @@ export default function HomePage() {
         {/* Description */}
         <div className="mb-8 max-w-prose">
           <p className="text-muted-foreground mb-4">
-            Currently trading equity options in London and vibe-code.
+            Currently vibe-coding and trading equity options 🚀
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function HomePage() {
         {/* Recent articles */}
         <section>
           <h2 className="mb-6 flex items-center gap-2 text-2xl font-semibold">
-            <span>Recent articles</span>
+            <span>Recent Articles</span>
             <div className="from-border h-px flex-1 bg-gradient-to-r to-transparent"></div>
           </h2>
           {recent.length === 0 && (
