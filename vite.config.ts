@@ -10,7 +10,7 @@ export default defineConfig({
   // Use the repository name as base when building for production so that
   // absolute asset URLs resolve correctly on GitHub Pages (served at /jaldevik.com/).
   // In dev mode Vite serves at root so we keep "/".
-  base: process.env.NODE_ENV === 'production' ? '/jaldevik.com/' : '/',
+  base: '/',
   plugins: [
     react({
       babel: {
