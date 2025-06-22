@@ -3,6 +3,7 @@
  * Auto-generate `src/generated/posts.ts` containing typed meta for blog posts.
  * Run via `pnpm run generate:posts` (called in dev/build scripts).
  */
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import fg from 'fast-glob';
@@ -74,6 +75,14 @@ async function main() {
   const array = `export const posts: PostMeta[] = ${JSON.stringify(posts, null, 2)};\n`;
 
   fs.writeFileSync(OUTPUT_FILE, banner + '\n' + typeDef + array, 'utf8');
+
+  // Format the generated file with Prettier
+  try {
+    execSync(`npx prettier --write "${OUTPUT_FILE}"`, { stdio: 'inherit' });
+  } catch (error) {
+    console.warn('Failed to format generated file with Prettier:', error);
+  }
+
   console.log(
     `📝 Generated ${posts.length} post meta → ${path.relative(process.cwd(), OUTPUT_FILE)}`,
   );
