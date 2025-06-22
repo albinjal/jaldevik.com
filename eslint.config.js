@@ -15,6 +15,13 @@ export default [
     },
   },
   {
+    files: ['src/generated/**/*.ts'],
+    rules: {
+      // Disable perfectionist rules for generated files
+      'perfectionist/sort-object-types': 'off',
+    },
+  },
+  {
     files: ['src/**/*.tsx', 'src/**/*.ts'],
     rules: {
       // Allow any type in certain contexts (can be overly restrictive for React components)
