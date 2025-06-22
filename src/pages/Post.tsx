@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link as RouterLink, useParams } from 'react-router-dom';
 import { BlogPostFooter } from '../components/BlogPostFooter.tsx';
 import { BlogPostHeader } from '../components/BlogPostHeader.tsx';
-import { posts } from '../generated/posts.js';
+import { posts } from '../generated/posts.ts';
 import {
   calculateReadingTime,
   extractTextFromMDX,
@@ -21,7 +21,7 @@ export default function PostPage() {
   const [readingTime, setReadingTime] = useState<string>('');
 
   // Find post metadata
-  const postMeta = posts.find((post: any) => post.slug === slug);
+  const postMeta = posts.find((post: { slug: string }) => post.slug === slug);
 
   useEffect(() => {
     if (!slug) {

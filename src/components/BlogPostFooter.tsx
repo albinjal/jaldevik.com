@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { posts } from '../generated/posts.js';
+import { posts } from '../generated/posts.ts';
 import { Button } from './ui/button.tsx';
 
 interface BlogPostFooterProps {
@@ -8,7 +8,9 @@ interface BlogPostFooterProps {
 }
 
 export function BlogPostFooter({ currentSlug }: BlogPostFooterProps) {
-  const currentIndex = posts.findIndex((post) => post.slug === currentSlug);
+  const currentIndex = posts.findIndex(
+    (post: { slug: string }) => post.slug === currentSlug,
+  );
   const previousPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
   const nextPost =
     currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;

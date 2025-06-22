@@ -1,5 +1,5 @@
-import { posts } from '@/generated/posts.js';
-import type { PostMeta } from '@/generated/posts.js';
+import { posts } from '@/generated/posts.ts';
+import type { PostMeta } from '@/generated/posts.ts';
 import { Link } from 'react-router-dom';
 import InfoChip from '../components/InfoChip.tsx';
 import { Badge } from '../components/ui/badge.tsx';
@@ -68,7 +68,7 @@ export default function HomePage() {
 
                     {post.tags && post.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2">
-                        {post.tags.map((tag) => (
+                        {post.tags.map((tag: string) => (
                           <Badge
                             className="bg-primary/5 border-primary/20 text-primary hover:bg-primary/10 px-2 py-1 text-xs transition-colors"
                             key={tag}

@@ -6,7 +6,7 @@ import { useCallback, useRef } from 'react';
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
   const isDark = theme === 'dark';
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleToggle = useCallback(() => {
     // Clear any existing timeout to prevent rapid switching
