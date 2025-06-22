@@ -11,7 +11,7 @@ export default function App() {
       <div className="from-background via-background to-background/95 relative flex min-h-screen flex-col bg-gradient-to-br">
         <BackgroundAnimation />
         <Navbar />
-        <main className="relative z-10 flex-1">
+        <main className="relative z-10 flex flex-1 flex-col">
           <Routes>
             <Route element={<HomePage />} path="/" />
             <Route element={<PostPage />} path="/blog/:slug" />

@@ -33,7 +33,7 @@ export default function PostPage() {
     if (!loader) {
       // No match → 404
       setComponent(() => () => (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto flex-1 px-4 py-8">
           <div className="mx-auto max-w-3xl space-y-4 text-center">
             <h1 className="text-foreground text-4xl font-bold">
               404 – Post not found
@@ -71,7 +71,7 @@ export default function PostPage() {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto flex-1 px-4 py-8">
         <div className="mx-auto max-w-3xl">
           <div className="animate-pulse space-y-6">
             <div className="bg-muted h-4 w-24 rounded"></div>
@@ -92,7 +92,7 @@ export default function PostPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto flex-1 px-4 py-8">
       <div className="mx-auto max-w-3xl">
         {postMeta && (
           <BlogPostHeader

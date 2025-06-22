@@ -9,7 +9,7 @@ export default function HomePage() {
   const recent: PostMeta[] = posts.slice(0, 5);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto flex-1 px-4 py-8">
       <div className="animate-fade-in-up mx-auto max-w-3xl">
         {/* Header */}
         <h1 className="from-foreground to-muted-foreground mb-2 bg-gradient-to-r bg-clip-text text-4xl leading-tight font-bold text-transparent">
