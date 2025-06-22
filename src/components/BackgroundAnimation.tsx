@@ -57,7 +57,7 @@ export default function BackgroundAnimation() {
           vy: (Math.random() - 0.5) * 0.3,
           content: equations[Math.floor(Math.random() * equations.length)],
           size: 12 + Math.random() * 8,
-          opacity: 0.1 + Math.random() * 0.15,
+          opacity: 0.03 + Math.random() * 0.07,
           type: 'equation',
         });
       }
@@ -71,7 +71,7 @@ export default function BackgroundAnimation() {
           vy: (Math.random() - 0.5) * 0.2,
           content: sailboat,
           size: 16 + Math.random() * 12,
-          opacity: 0.15 + Math.random() * 0.1,
+          opacity: 0.08 + Math.random() * 0.07,
           type: 'sailboat',
         });
       }
@@ -150,8 +150,8 @@ export default function BackgroundAnimation() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-0 opacity-60 dark:opacity-40"
-      style={{ color: 'var(--muted-foreground)' }}
+      className="pointer-events-none fixed inset-0 z-0 opacity-30 dark:opacity-20"
+      style={{ color: 'var(--muted-foreground)', filter: 'blur(0.5px)' }}
     />
   );
 }

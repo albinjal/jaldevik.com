@@ -15,8 +15,6 @@ export default function HomePage() {
         <h1 className="from-foreground to-muted-foreground mb-2 bg-gradient-to-r bg-clip-text text-4xl leading-tight font-bold text-transparent">
           Albin Jaldevik
         </h1>
-        <p className="text-muted-foreground mb-6 text-lg">Mathematics & AI</p>
-
         {/* Description */}
         <div className="mb-8 max-w-prose">
           <p className="text-muted-foreground mb-4">
