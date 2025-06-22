@@ -50,6 +50,9 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
+    // Temporarily disable transitions to prevent bouncing
+    root.classList.add('theme-transition-disable');
+
     root.classList.remove('light', 'dark');
 
     if (theme === 'system') {
@@ -58,10 +61,18 @@ export function ThemeProvider({
         ? 'dark'
         : 'light';
       root.classList.add(systemTheme);
-      return;
+    } else {
+      root.classList.add(theme);
     }
 
-    root.classList.add(theme);
+    // Re-enable transitions after a brief delay to allow the theme change to complete
+    const timeoutId = setTimeout(() => {
+      root.classList.remove('theme-transition-disable');
+    }, 50);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [theme]);
 
   const setTheme: ThemeProviderState['setTheme'] = (newTheme) => {

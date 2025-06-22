@@ -38,6 +38,16 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
+
+  /* Add smooth transitions for theme changes */
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+/* Add transition suppression class for theme changes */
+.theme-transition-disable * {
+  transition: none !important;
 }
 
 @theme inline {
@@ -118,6 +128,24 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Add smooth transitions for background and text color changes */
+    transition:
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+  }
+
+  /* Add transitions to commonly themed elements */
+  nav,
+  main,
+  div,
+  section,
+  article,
+  aside,
+  header,
+  footer {
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
   }
 }
 

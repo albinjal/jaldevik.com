@@ -4,7 +4,7 @@ import { ModeToggle } from './mode-toggle.tsx';
 
 export default function Navbar() {
   return (
-    <nav className="border-border/40 bg-background/80 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur-md">
+    <nav className="border-border/40 bg-background/80 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur-md transition-colors duration-200 ease-in-out">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Site title / logo */}
         <Link

@@ -157,7 +157,7 @@ export default function BackgroundAnimation() {
 
   return (
     <canvas
-      className="pointer-events-none fixed inset-0 z-0 opacity-30 dark:opacity-20"
+      className="pointer-events-none fixed inset-0 z-0 opacity-30 transition-opacity duration-200 ease-in-out dark:opacity-20"
       ref={canvasRef}
       style={{ color: 'var(--muted-foreground)', filter: 'blur(0.5px)' }}
     />

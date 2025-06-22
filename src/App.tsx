@@ -2,6 +2,7 @@ import HomePage from '@/pages/Home.tsx';
 import PostPage from '@/pages/Post.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import BackgroundAnimation from './components/BackgroundAnimation.tsx';
+import Footer from './components/Footer.tsx';
 import Navbar from './components/Navbar.tsx';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
             <Route element={<PostPage />} path="/blog/:slug" />
           </Routes>
         </main>
+        <Footer />
       </div>
     </BrowserRouter>
   );
