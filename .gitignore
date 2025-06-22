@@ -5,4 +5,4 @@ coverage/
 dist/
 tsconfig.tsbuildinfo
 vite.config.ts.timestamp-*
-src/generated/posts.ts
+# src/generated/posts.ts - keeping this committed as a placeholder
