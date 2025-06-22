@@ -1,5 +1,5 @@
 import { posts } from '@/generated/posts.ts';
-import type { PostMeta } from '@/generated/posts.ts';
+import type { PostMeta } from '@/types/posts.ts';
 import { Link } from 'react-router-dom';
 import InfoChip from '../components/InfoChip.tsx';
 import { Badge } from '../components/ui/badge.tsx';
