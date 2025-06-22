@@ -18,13 +18,4 @@ export const posts: PostMeta[] = [
     summary: 'Your first MDX blog post!',
     tags: ['MDX', 'React', 'Getting Started'],
   },
-  {
-    slug: 'mathematics-in-trading',
-    path: '/blog/mathematics-in-trading',
-    title: 'Mathematics in Quantitative Trading',
-    date: '2025-01-15',
-    summary:
-      'Exploring how mathematical models power modern algorithmic trading strategies.',
-    tags: ['Mathematics', 'Trading', 'Algorithms', 'Finance'],
-  },
 ];

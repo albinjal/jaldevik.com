@@ -18,12 +18,8 @@ export default function HomePage() {
         {/* Description */}
         <div className="mb-8 max-w-prose">
           <p className="text-muted-foreground mb-4">
-            I specialise in turning data and algorithms into actionable
-            insight—currently trading equity options in London.
-          </p>
-          <p className="text-muted-foreground">
-            Outside of work I write about programming, mathematics and other
-            technical topics.
+            Currently trading equity options in London. Outside of work I
+            vibe-code.
           </p>
         </div>
 

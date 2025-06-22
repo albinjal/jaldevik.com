@@ -27,7 +27,7 @@ export default function Navbar() {
             <Mail className="h-5 w-5" />
           </a>
           <a
-            href="https://github.com/jaldevik"
+            href="https://github.com/albinjal"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-primary hover:bg-primary/10 rounded-lg p-2 transition-all duration-200 hover:scale-110"
