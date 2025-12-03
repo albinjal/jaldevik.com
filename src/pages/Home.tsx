@@ -18,7 +18,7 @@ export default function HomePage() {
         {/* Description */}
         <div className="mb-8 max-w-prose">
           <p className="text-muted-foreground mb-4">
-            Currently vibe-coding and trading equity options 🚀
+            Quant and aspiring AI researcher
           </p>
         </div>
 
