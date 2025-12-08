@@ -4,14 +4,6 @@ import type { PostMeta } from '../types/posts.ts';
 
 export const posts: PostMeta[] = [
   {
-    date: '2025-06-22',
-    path: '/blog/welcome',
-    slug: 'welcome',
-    summary: 'Welcome to my personal website!',
-    tags: ['Non-technical'],
-    title: 'Welcome to Jaldevik.com',
-  },
-  {
     date: '2024-06-01',
     path: '/blog/selected-research-projects',
     slug: 'selected-research-projects',

@@ -1,11 +1,10 @@
 ---
-title: Research Projects at TU Delft
-date: '2024-06-01'
-summary: A collection of research projects and reproductions I worked on during my Master's at TU Delft.
-tags: ['Research', 'AI', 'Projects', 'TU Delft']
----
 
-Here is a collection of research projects I worked on during my Master's at TU Delft, ranging from my thesis on AlphaZero to course projects exploring Computer Vision and Probabilistic Programming.
+title: Delft Research Projects
+date: '2024-06-01'
+summary: A few highlights of research projects I worked on during my Master's at TU Delft.
+
+Here are some highlights of research projects I worked on during my Master's at TU Delft, ranging from my thesis on AlphaZero to course projects exploring Computer Vision and Probabilistic Programming. Check out my GitHub for more projects and details.
 
 ## [General Tree Evaluation for AlphaZero](https://github.com/albinjal/GeneralAlphaZero)
 
@@ -15,7 +14,13 @@ _Master's Thesis Project_
 
 For my Master's thesis, I dug into the AlphaZero algorithm and found that the way it evaluates positions in the game tree could be improved. I "decoupled" the tree construction from the evaluation, which allowed me to experiment with new ways of estimating value.
 
-I proposed a new evaluator I called **MVC (Mean-Variance-Count)**. The core idea was to balance the variance and expectation when estimating the value of a move in the Monte Carlo tree, rather than just relying on the mean. It turned out to work really well! It consistently outperformed the baseline, especially when we strictly limited the number of simulations the agent could run—making it much more efficient. This work also laid the foundation for [TransZero](https://arxiv.org/abs/2509.11233), a subsequent paper on novel construction algorithms.
+## [Inference Compilation and Universal Probabilistic Programming](https://github.com/felixk29/compile_inference)
+
+_Course Project: Seminar Probabilistic Programming_
+
+This project was a deep dive into **Probabilistic Programming**. We worked on reproducing _Inference Compilation_, a technique where you compile a probabilistic program into a neural network artifact. This "artifact" then acts as a super-smart proposal distribution for importance sampling, making inference incredibly fast.
+
+We implemented the LSTM-based proposal networks in **Gen** (a Julia library). It successfully learned to perform inference on a classic Burglar/Alarm Bayesian network. We also proposed a meta-learning extension to automatically tune the observation embeddings, which is usually a manual and tedious process.
 
 ## [Deep Hedging](https://github.com/appie-mathematics/Deep-Hedging)
 
@@ -29,20 +34,19 @@ We implemented the agents from scratch in PyTorch and set them loose on simulate
 
 ## [Bayesian Loss for Car Counting](https://github.com/albinjal/Bayesian-Car-Counting)
 
-_Course Project: Computer Vision by Deep Learning_
+_Course Project: Seminar Computer Vision by Deep_
 
-![Density Estimation Results](/images/projects/car-counting.png)
+![Density Estimation Results](/images/projects/car-counting-bayesian-plus.png)
 
 Counting dense crowds or traffic from overhead images is tough. For this project, we implemented **Bayesian Loss**, a method that uses point annotations to create a density contribution probability model. Essentially, instead of trying to predict exact points, the model predicts the _density_ of cars in an area.
 
 We trained a VGG-19 network on the COWC dataset and the results were surprisingly good. We achieved a **71% reduction in Mean Squared Error** compared to the baseline.
 
 ![Comparison: Bayes+ vs Ground Truth](/images/projects/car-counting-comparison.png)
-_Left: Our model's prediction. Right: Ground Truth._
 
 The coolest part was seeing it generalize. We took the model trained on standard dataset images and ran it over aerial shots of our own **TU Delft campus** from Google Earth.
 
-![Generalization on TU Delft Campus](/images/projects/car-counting-generalization.jpg)
+![Generalization on TU Delft Campus](/images/projects/Google_earth_2.png)
 
 It worked right out of the box! It correctly identified parking lots and ignored empty roads, showing it had learned a robust representation of what "dense traffic" looks like from above.
 
@@ -59,11 +63,3 @@ We decided to port the entire VQGAN architecture to pure PyTorch (the original w
 ![Atari Reconstruction](/images/projects/taming-transformers-atari.png)
 
 The reconstruction results (above) show the model successfully learning the complex, pixelated game states.
-
-## [Inference Compilation and Universal Probabilistic Programming](https://github.com/felixk29/compile_inference)
-
-_Course Project: Probabilistic Programming_
-
-This project was a deep dive into **Probabilistic Programming**. We worked on reproducing _Inference Compilation_, a technique where you compile a probabilistic program into a neural network artifact. This "artifact" then acts as a super-smart proposal distribution for importance sampling, making inference incredibly fast.
-
-We implemented the LSTM-based proposal networks in **Gen** (a Julia language). It successfully learned to perform inference on a classic Burglar/Alarm Bayesian network. We also proposed a meta-learning extension to automatically tune the observation embeddings, which is usually a manual and tedious process.
