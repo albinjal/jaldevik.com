@@ -8,8 +8,8 @@ export const posts: PostMeta[] = [
     path: '/blog/selected-research-projects',
     slug: 'selected-research-projects',
     summary:
-      "A collection of research projects and reproductions I worked on during my Master's at TU Delft.",
+      "A few highlights of research projects I worked on during my Master's at TU Delft.",
     tags: ['Research', 'AI', 'Projects', 'TU Delft'],
-    title: 'Research Projects at TU Delft',
+    title: 'Delft Research Projects',
   },
 ];

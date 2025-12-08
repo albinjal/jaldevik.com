@@ -1,8 +1,9 @@
 ---
-
 title: Delft Research Projects
 date: '2024-06-01'
 summary: A few highlights of research projects I worked on during my Master's at TU Delft.
+tags: ['Research', 'AI', 'Projects', 'TU Delft']
+---
 
 Here are some highlights of research projects I worked on during my Master's at TU Delft, ranging from my thesis on AlphaZero to course projects exploring Computer Vision and Probabilistic Programming. Check out my GitHub for more projects and details.
 
@@ -22,6 +23,8 @@ This project was a deep dive into **Probabilistic Programming**. We worked on re
 
 We implemented the LSTM-based proposal networks in **Gen** (a Julia library). It successfully learned to perform inference on a classic Burglar/Alarm Bayesian network. We also proposed a meta-learning extension to automatically tune the observation embeddings, which is usually a manual and tedious process.
 
+![Accuracy vs MH Budget](/images/projects/inference-compilation-accuracy.png)
+
 ## [Deep Hedging](https://github.com/appie-mathematics/Deep-Hedging)
 
 _Course Project: Deep Reinforcement Learning_
@@ -31,6 +34,8 @@ _Course Project: Deep Reinforcement Learning_
 This was a fun reproduction project where we tackled the paper _Deep Hedging_. The premise is using Deep Reinforcement Learning to find optimal hedging strategies for a portfolio of derivatives, even when facing transaction costs.
 
 We implemented the agents from scratch in PyTorch and set them loose on simulated markets. It was cool to see the agents actually learn to hedge effectively. You can see in the training GIF above how the agent (the red line) starts to figure out how to offset the risk of the portfolio (the blue line) over time, finding a strategy that minimizes the overall variance.
+
+![Optimal Hedging Paths](/images/projects/deep-hedging-paths.svg)
 
 ## [Bayesian Loss for Car Counting](https://github.com/albinjal/Bayesian-Car-Counting)
 
