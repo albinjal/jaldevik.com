@@ -11,4 +11,13 @@ export const posts: PostMeta[] = [
     tags: ['Non-technical'],
     title: 'Welcome to Jaldevik.com',
   },
+  {
+    date: '2024-06-01',
+    path: '/blog/selected-research-projects',
+    slug: 'selected-research-projects',
+    summary:
+      "A collection of research projects and reproductions I worked on during my Master's at TU Delft.",
+    tags: ['Research', 'AI', 'Projects', 'TU Delft'],
+    title: 'Research Projects at TU Delft',
+  },
 ];
