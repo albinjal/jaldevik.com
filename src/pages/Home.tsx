@@ -17,9 +17,7 @@ export default function HomePage() {
         </h1>
         {/* Description */}
         <div className="mb-8 max-w-prose">
-          <p className="text-muted-foreground mb-4">
-            Quant and aspiring AI researcher
-          </p>
+          <p className="text-muted-foreground mb-4">Quant and AI Engineer</p>
         </div>
 
         {/* Info Chips */}
